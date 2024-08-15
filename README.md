@@ -28,6 +28,8 @@ result2 = mp.polish_model_document(config, sbml)
 # result["polished_document"]
 ```
 
+You can find the config options [here](https://github.com/draeger-lab/MPServer/blob/main/resources/default-config.json).
+
 ## Requirements.
 
 Python 2.7 and 3.4+
