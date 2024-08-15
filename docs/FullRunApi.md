@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**submit_file_post**](FullRunApi.md#submit_file_post) | **POST** /submit/file | Upload a model file and parameters for the ModelPolisher.
 
 # **submit_file_post**
-> InlineResponse200 submit_file_post(model_file)
+> InlineResponse200 submit_file_post(config=config, model_file=model_file)
 
 Upload a model file and parameters for the ModelPolisher.
 
@@ -21,11 +21,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = model_polisher.FullRunApi()
-model_file = 'model_file_example' # str | 
+config = model_polisher.Config() # Config |  (optional)
+model_file = 'model_file_example' # str |  (optional)
 
 try:
     # Upload a model file and parameters for the ModelPolisher.
-    api_response = api_instance.submit_file_post(model_file)
+    api_response = api_instance.submit_file_post(config=config, model_file=model_file)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling FullRunApi->submit_file_post: %s\n" % e)
@@ -35,7 +36,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model_file** | **str**|  | 
+ **config** | [**Config**](.md)|  | [optional] 
+ **model_file** | **str**|  | [optional] 
 
 ### Return type
 

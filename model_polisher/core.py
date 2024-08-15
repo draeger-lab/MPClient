@@ -5,7 +5,7 @@ import base64
 import libsbml
 import tempfile
 
-def polish_model_document(document):
+def polish_model_document(config, document):
     """
     Polish a libsbml.SBMLDocument object using the Model Polisher API.
 
@@ -27,7 +27,7 @@ def polish_model_document(document):
     # Convert SBML document to string
     libsbml.writeSBMLToFile(document, tmp_file.name)
 
-    # Upload a model file and parameters for the Model Polisher.
+    # Upload a model fil    e and parameters for the Model Polisher.
     api_response = api_instance.submit_file_post(tmp_file.name)
 
     # Decode the polished SBML string from Base64

@@ -14,9 +14,3 @@
 from __future__ import absolute_import
 
 # import models into model package
-from model_polisher.parameters.base64_model_file import Base64ModelFile
-from model_polisher.parameters.diff import Diff
-from model_polisher.parameters.error import Error
-from model_polisher.parameters.inline_response200 import InlineResponse200
-from model_polisher.parameters.run_id import RunId
-from model_polisher.parameters.submit_file_body import SubmitFileBody
