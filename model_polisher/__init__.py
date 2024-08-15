@@ -26,3 +26,4 @@ from model_polisher.parameters.error import Error
 from model_polisher.parameters.inline_response200 import InlineResponse200
 from model_polisher.parameters.run_id import RunId
 from model_polisher.parameters.submit_file_body import SubmitFileBody
+from model_polisher.core import polish_model_file, polish_model_document
