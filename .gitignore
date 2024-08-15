@@ -62,7 +62,10 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
-/tox.ini
-/.travis.yml
-/.swagger-codegen/
-/.idea/
+
+.idea
+
+.travis.yml
+git_push.sh
+tox.ini
+resources

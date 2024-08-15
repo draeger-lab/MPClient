@@ -28,55 +28,18 @@ class SubmitFileBody(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'config': 'Config',
-        'model_file': 'BinaryModelFile',
-        'model_notes_file': 'ModelNotesFile',
-        'document_notes_file': 'DocumentNotesFile'
+        'model_file': 'str'
     }
 
     attribute_map = {
-        'config': 'config',
-        'model_file': 'modelFile',
-        'model_notes_file': 'modelNotesFile',
-        'document_notes_file': 'documentNotesFile'
+        'model_file': 'modelFile'
     }
 
-    def __init__(self, config=None, model_file=None, model_notes_file=None, document_notes_file=None):  # noqa: E501
+    def __init__(self, model_file=None):  # noqa: E501
         """SubmitFileBody - a model defined in Swagger"""  # noqa: E501
-        self._config = None
         self._model_file = None
-        self._model_notes_file = None
-        self._document_notes_file = None
         self.discriminator = None
-        self.config = config
         self.model_file = model_file
-        if model_notes_file is not None:
-            self.model_notes_file = model_notes_file
-        if document_notes_file is not None:
-            self.document_notes_file = document_notes_file
-
-    @property
-    def config(self):
-        """Gets the config of this SubmitFileBody.  # noqa: E501
-
-
-        :return: The config of this SubmitFileBody.  # noqa: E501
-        :rtype: Config
-        """
-        return self._config
-
-    @config.setter
-    def config(self, config):
-        """Sets the config of this SubmitFileBody.
-
-
-        :param config: The config of this SubmitFileBody.  # noqa: E501
-        :type: Config
-        """
-        if config is None:
-            raise ValueError("Invalid value for `config`, must not be `None`")  # noqa: E501
-
-        self._config = config
 
     @property
     def model_file(self):
@@ -84,7 +47,7 @@ class SubmitFileBody(object):
 
 
         :return: The model_file of this SubmitFileBody.  # noqa: E501
-        :rtype: BinaryModelFile
+        :rtype: str
         """
         return self._model_file
 
@@ -94,54 +57,12 @@ class SubmitFileBody(object):
 
 
         :param model_file: The model_file of this SubmitFileBody.  # noqa: E501
-        :type: BinaryModelFile
+        :type: str
         """
         if model_file is None:
             raise ValueError("Invalid value for `model_file`, must not be `None`")  # noqa: E501
 
         self._model_file = model_file
-
-    @property
-    def model_notes_file(self):
-        """Gets the model_notes_file of this SubmitFileBody.  # noqa: E501
-
-
-        :return: The model_notes_file of this SubmitFileBody.  # noqa: E501
-        :rtype: ModelNotesFile
-        """
-        return self._model_notes_file
-
-    @model_notes_file.setter
-    def model_notes_file(self, model_notes_file):
-        """Sets the model_notes_file of this SubmitFileBody.
-
-
-        :param model_notes_file: The model_notes_file of this SubmitFileBody.  # noqa: E501
-        :type: ModelNotesFile
-        """
-
-        self._model_notes_file = model_notes_file
-
-    @property
-    def document_notes_file(self):
-        """Gets the document_notes_file of this SubmitFileBody.  # noqa: E501
-
-
-        :return: The document_notes_file of this SubmitFileBody.  # noqa: E501
-        :rtype: DocumentNotesFile
-        """
-        return self._document_notes_file
-
-    @document_notes_file.setter
-    def document_notes_file(self, document_notes_file):
-        """Sets the document_notes_file of this SubmitFileBody.
-
-
-        :param document_notes_file: The document_notes_file of this SubmitFileBody.  # noqa: E501
-        :type: DocumentNotesFile
-        """
-
-        self._document_notes_file = document_notes_file
 
     def to_dict(self):
         """Returns the model properties as a dict"""

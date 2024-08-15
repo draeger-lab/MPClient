@@ -1,4 +1,4 @@
-# ConfigPolishingReactionsFluxObjectives
+# MpConfigPolishingReactionsFluxObjectives
 
 ## Properties
 Name | Type | Description | Notes

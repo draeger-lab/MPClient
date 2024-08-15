@@ -32,43 +32,43 @@ class FullRunApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def submit_file_post(self, body, **kwargs):  # noqa: E501
+    def submit_file_post(self, model_file, **kwargs):  # noqa: E501
         """Upload a model file and parameters for the ModelPolisher.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.submit_file_post(body, async_req=True)
+        >>> thread = api.submit_file_post(model_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubmitFileBody body: (required)
+        :param str model_file: (required)
         :return: InlineResponse200
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.submit_file_post_with_http_info(body, **kwargs)  # noqa: E501
+            return self.submit_file_post_with_http_info(model_file, **kwargs)  # noqa: E501
         else:
-            (data) = self.submit_file_post_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.submit_file_post_with_http_info(model_file, **kwargs)  # noqa: E501
             return data
 
-    def submit_file_post_with_http_info(self, body, **kwargs):  # noqa: E501
+    def submit_file_post_with_http_info(self, model_file, **kwargs):  # noqa: E501
         """Upload a model file and parameters for the ModelPolisher.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.submit_file_post_with_http_info(body, async_req=True)
+        >>> thread = api.submit_file_post_with_http_info(model_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubmitFileBody body: (required)
+        :param str model_file: (required)
         :return: InlineResponse200
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body']  # noqa: E501
+        all_params = ['model_file']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -83,10 +83,10 @@ class FullRunApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'body' is set
-        if ('body' not in params or
-                params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `submit_file_post`")  # noqa: E501
+        # verify the required parameter 'model_file' is set
+        if ('model_file' not in params or
+                params['model_file'] is None):
+            raise ValueError("Missing the required parameter `model_file` when calling `submit_file_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -98,17 +98,17 @@ class FullRunApi(object):
 
         form_params = []
         local_var_files = {}
+        if 'model_file' in params:
+            local_var_files['modelFile'] = params['model_file']  # noqa: E501
 
         body_params = None
-        if 'body' in params:
-            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['multipart/mixed'])  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501
