@@ -4,6 +4,7 @@ from model_polisher import FullRunApi, ApiClient
 import base64
 import libsbml
 import tempfile
+import json
 
 def polish_model_document(config, document):
     """
@@ -28,7 +29,8 @@ def polish_model_document(config, document):
     libsbml.writeSBMLToFile(document, tmp_file.name)
 
     # Upload a model fil    e and parameters for the Model Polisher.
-    api_response = api_instance.submit_file_post(tmp_file.name)
+    api_response = api_instance.submit_file_post(model_file=tmp_file.name,
+                                                 config=json.dumps(config))
 
     # Decode the polished SBML string from Base64
     polished_sbml_str = base64.b64decode(api_response.model_file).decode('utf-8')
@@ -41,19 +43,8 @@ def polish_model_document(config, document):
     }
     return result
 
-# def model_polisher_config_dict_to_obj(config_dict):
-#     """
-#     Convert a configuration dictionary to a Config object.
-#     """
-#     config = Config()
-#     for key, value in config_dict.items():
-#         if hasattr(config, key):
-#             setattr(config, key, value)
-#         else:
-#             print(f"Warning: {key} is not a valid attribute of Config")
-#     return config
 
-def polish_model_file(file_path):
+def polish_model_file(config, file_path):
     """
     Polish an SBML file using the Model Polisher API.
 
@@ -69,7 +60,8 @@ def polish_model_file(file_path):
     api_instance = FullRunApi(ApiClient(client_configuration))
 
     # Upload a model file and parameters for the Model Polisher.
-    api_response = api_instance.submit_file_post(file_path)
+    api_response = api_instance.submit_file_post(model_file=file_path,
+                                                 config=json.dumps(config))
 
     # Decode the polished SBML string from Base64
     polished_sbml_str = base64.b64decode(api_response.model_file).decode('utf-8')

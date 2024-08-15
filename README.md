@@ -13,11 +13,14 @@ import model_polisher as mp
 model_file = "path/to/iAF1260 .xml"
 sbml = libsbml.readSBMLFromFile(model_file)
 
+config = {"annotation": {"bigg": {"annotate-with-bigg": "false"},
+                         "adb": {"annotate-with-adb": "false"}}}
+
 # you can pass a file
-result = mp.polish_model_file(model_file)
+result = mp.polish_model_file(config, model_file)
 
 # or you can pass a libsbml.SBMLDocument object
-result2 = mp.polish_model_document(sbml)
+result2 = mp.polish_model_document(config, sbml)
 
 # result is a dictionary with three keys:
 # result["run_id"]
