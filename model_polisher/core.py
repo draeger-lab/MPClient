@@ -5,6 +5,10 @@ import base64
 import libsbml
 import tempfile
 import json
+import logging
+
+# Set up basic configuration for the logging system
+logging.basicConfig(level=logging.DEBUG)
 
 def polish_model_document(config, document):
     """
@@ -17,6 +21,7 @@ def polish_model_document(config, document):
     Returns:
     dict: Result dictionary containing run_id, diff, and polished model.
     """
+    logging.debug("Preparing request.")
     client_configuration = Configuration()
     client_configuration.host = "https://biodata.informatik.uni-halle.de/modelling/api/development"
     api_instance = FullRunApi(ApiClient(client_configuration))
@@ -28,12 +33,15 @@ def polish_model_document(config, document):
     # Convert SBML document to string
     libsbml.writeSBMLToFile(document, tmp_file.name)
 
+    logging.debug("Sending request.")
     # Upload a model fil    e and parameters for the Model Polisher.
     api_response = api_instance.submit_file_post(model_file=tmp_file.name,
                                                  config=json.dumps(config))
 
+    logging.debug("Decoding response.")
     # Decode the polished SBML string from Base64
     polished_sbml_str = base64.b64decode(api_response.model_file).decode('utf-8')
+    logging.debug("Reading SBML from decoded response.")
     polished_document = libsbml.readSBMLFromString(polished_sbml_str)
 
     result = {
@@ -55,16 +63,20 @@ def polish_model_file(config, file_path):
     Returns:
     dict: Result dictionary containing run_id, diff, and path to the polished model.
     """
+    logging.debug("Preparing request.")
     client_configuration = Configuration()
     client_configuration.host = "https://biodata.informatik.uni-halle.de/modelling/api/development"
     api_instance = FullRunApi(ApiClient(client_configuration))
 
+    logging.debug("Sending request.")
     # Upload a model file and parameters for the Model Polisher.
     api_response = api_instance.submit_file_post(model_file=file_path,
                                                  config=json.dumps(config))
 
     # Decode the polished SBML string from Base64
+    logging.debug("Decoding response.")
     polished_sbml_str = base64.b64decode(api_response.model_file).decode('utf-8')
+    logging.debug("Reading SBML from decoded response.")
     polished_document = libsbml.readSBMLFromString(polished_sbml_str)
 
     result = {
