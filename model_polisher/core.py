@@ -24,6 +24,7 @@ def polish_model_document(config, document):
     logging.debug("Preparing request.")
     client_configuration = Configuration()
     client_configuration.host = "https://biodata.informatik.uni-halle.de/modelling/api/development"
+    #client_configuration.host = "http://localhost:3000"
     api_instance = FullRunApi(ApiClient(client_configuration))
 
     # Convert the configuration dictionary to a Config object
@@ -47,7 +48,9 @@ def polish_model_document(config, document):
     result = {
         "run_id": api_response.run_id,
         "diff": api_response.diff,
-        "polished_document": polished_document
+        "polished_document": polished_document,
+        "pre_validation": api_response.pre_validation,
+        "post_validation": api_response.post_validation
     }
     return result
 
@@ -66,6 +69,7 @@ def polish_model_file(config, file_path):
     logging.debug("Preparing request.")
     client_configuration = Configuration()
     client_configuration.host = "https://biodata.informatik.uni-halle.de/modelling/api/development"
+    #client_configuration.host = "http://localhost:3000"
     api_instance = FullRunApi(ApiClient(client_configuration))
 
     logging.debug("Sending request.")
@@ -82,6 +86,8 @@ def polish_model_file(config, file_path):
     result = {
         "run_id": api_response.run_id,
         "diff": api_response.diff,
-        "polished_document": polished_document
+        "polished_document": polished_document,
+        "pre_validation": api_response.pre_validation,
+        "post_validation": api_response.post_validation
     }
     return result

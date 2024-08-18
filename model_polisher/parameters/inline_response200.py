@@ -30,20 +30,26 @@ class InlineResponse200(object):
     swagger_types = {
         'run_id': 'RunId',
         'diff': 'Diff',
-        'model_file': 'Base64ModelFile'
+        'model_file': 'Base64ModelFile',
+        'pre_validation': 'object',
+        'post_validation': 'object'
     }
 
     attribute_map = {
         'run_id': 'runId',
         'diff': 'diff',
-        'model_file': 'modelFile'
+        'model_file': 'modelFile',
+        'pre_validation': 'preValidation',
+        'post_validation': 'postValidation'
     }
 
-    def __init__(self, run_id=None, diff=None, model_file=None):  # noqa: E501
+    def __init__(self, run_id=None, diff=None, model_file=None, pre_validation=None, post_validation=None):  # noqa: E501
         """InlineResponse200 - a model defined in Swagger"""  # noqa: E501
         self._run_id = None
         self._diff = None
         self._model_file = None
+        self._pre_validation = None
+        self._post_validation = None
         self.discriminator = None
         if run_id is not None:
             self.run_id = run_id
@@ -51,6 +57,10 @@ class InlineResponse200(object):
             self.diff = diff
         if model_file is not None:
             self.model_file = model_file
+        if pre_validation is not None:
+            self.pre_validation = pre_validation
+        if post_validation is not None:
+            self.post_validation = post_validation
 
     @property
     def run_id(self):
@@ -114,6 +124,48 @@ class InlineResponse200(object):
         """
 
         self._model_file = model_file
+
+    @property
+    def pre_validation(self):
+        """Gets the pre_validation of this InlineResponse200.  # noqa: E501
+
+
+        :return: The pre_validation of this InlineResponse200.  # noqa: E501
+        :rtype: object
+        """
+        return self._pre_validation
+
+    @pre_validation.setter
+    def pre_validation(self, pre_validation):
+        """Sets the pre_validation of this InlineResponse200.
+
+
+        :param pre_validation: The pre_validation of this InlineResponse200.  # noqa: E501
+        :type: object
+        """
+
+        self._pre_validation = pre_validation
+
+    @property
+    def post_validation(self):
+        """Gets the post_validation of this InlineResponse200.  # noqa: E501
+
+
+        :return: The post_validation of this InlineResponse200.  # noqa: E501
+        :rtype: object
+        """
+        return self._post_validation
+
+    @post_validation.setter
+    def post_validation(self, post_validation):
+        """Sets the post_validation of this InlineResponse200.
+
+
+        :param post_validation: The post_validation of this InlineResponse200.  # noqa: E501
+        :type: object
+        """
+
+        self._post_validation = post_validation
 
     def to_dict(self):
         """Returns the model properties as a dict"""
