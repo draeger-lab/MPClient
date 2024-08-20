@@ -14,7 +14,7 @@ model_file = "path/to/iAF1260 .xml"
 sbml = libsbml.readSBMLFromFile(model_file)
 
 config = {"annotation": {"bigg": {"annotate-with-bigg": "false"},
-                         "adb": {"annotate-with-adb": "false"}}}
+                         "annotatedb": {"annotate-with-adb": "false"}}}
 
 # you can pass a file
 result = mp.polish_model_file(config, model_file)
@@ -22,13 +22,15 @@ result = mp.polish_model_file(config, model_file)
 # or you can pass a libsbml.SBMLDocument object
 result2 = mp.polish_model_document(config, sbml)
 
-# result is a dictionary with three keys:
-# result["run_id"]
-# result["diff"]
-# result["polished_document"]
+# result is a dictionary with five keys:
+# result["run_id"] # server-side run id for troubleshooting
+# result["diff"] # datastructure that attempts to show all the changes that were performed by the polisher
+# result["pre_validation"] # validation before the polisher was used
+# result["pre_validation"] # validation after the polisher was used
+# result["polished_document"] # libsbml.SBMLDocument object
 ```
 
-You can find the config options [here](https://github.com/draeger-lab/MPServer/blob/main/resources/default-config.json).
+You can find the config options [here](examples/default-request-config.json).
 
 ## Requirements.
 

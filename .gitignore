@@ -64,7 +64,7 @@ target/
 .ipynb_checkpoints
 
 .idea
-examples
+examples/*.xml
 /tox.ini
 /git_push.sh
 /.travis.yml

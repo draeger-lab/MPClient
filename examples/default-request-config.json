@@ -1,0 +1,23 @@
+{
+    "allow-model-to-be-saved-on-server": true,
+    "produce-diff": true,
+    "sbo-terms": {
+	"add-generic-terms": true
+    },
+    "fixing": {
+	"dont-fix": false
+    },
+    "polishing": {
+	"polish-even-if-model-invalid": false
+    },
+    "annotation": {
+	"bigg": {
+	    "annotate-with-bigg": true,
+	    "include-any-uri": true
+	},
+	"annotatedb": {
+	    "annotate-with-adb": true
+	}
+    },
+    "output": "xml"
+}
