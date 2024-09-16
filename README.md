@@ -1,7 +1,7 @@
 # model-polisher
 API for the [Model Polisher](https://github.com/draeger-lab/MPServer).
 
-- API version: 2.1
+- API version: 2.1-DEVELOPMENT
 - Package version: 0.0.1
 
 ## Getting Started
