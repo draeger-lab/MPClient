@@ -6,8 +6,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="model_polisher",  # Name 
-    version="0.1.0",  # Versionsnummer 
-    author="Andreas Dräger",  #  Name als Autor
+    version="2.1.0",  # Versionsnummer 
+    author="biodata",  #  Name als Autor
     author_email="biodata@informatik.uni-halle.de",  
     description="A Python package for polishing SBML models using the Model Polisher API",  # Kurze Beschreibung
     long_description=long_description = 
@@ -29,11 +29,11 @@ setup(
     python_requires=">=3.6",  # Unterstützte Python-Versionen
     install_requires=[  # Abhängigkeiten, die für dein Paket benötigt werden
         "libsbml>=3.1.0",
-        "model-polisher-api-client",  # Beispiel für den API-Client des Model Polishers
+       # "model-polisher-api-client",  # Beispiel für den API-Client des Model Polishers
     ],
     entry_points={  # Optionale Skripteinträge für die Kommandozeilenwerkzeuge
         'console_scripts': [
-            'polish_model=model_polisher.polish_model:main',  # Skriptaufruf
+            'polish_model=model_polisher.polish_model:main',  # Beispiel für Skriptaufruf
         ],
     },
 )
