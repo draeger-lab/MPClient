@@ -23,7 +23,7 @@ def polish_model_document(config, document):
     """
     logging.debug("Preparing request.")
     client_configuration = Configuration()
-    client_configuration.host = "https://biodata.informatik.uni-halle.de/modelling/api/development"
+    client_configuration.host = "https://biodata.informatik.uni-halle.de/modelling/api/v2.1"
     #client_configuration.host = "http://localhost:3000"
     api_instance = FullRunApi(ApiClient(client_configuration))
 
@@ -68,7 +68,7 @@ def polish_model_file(config, file_path):
     """
     logging.debug("Preparing request.")
     client_configuration = Configuration()
-    client_configuration.host = "https://biodata.informatik.uni-halle.de/modelling/api/development"
+    client_configuration.host = "https://biodata.informatik.uni-halle.de/modelling/api/v2.1"
     #client_configuration.host = "http://localhost:3000"
     api_instance = FullRunApi(ApiClient(client_configuration))
 

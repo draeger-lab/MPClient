@@ -1,6 +1,6 @@
 # model_polisher.FullRunApi
 
-All URIs are relative to *https://biodata.informatik.uni-halle.de/modelling/api/development/*
+All URIs are relative to *https://biodata.informatik.uni-halle.de/modelling/api/v2.1/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -46,7 +46,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     def __init__(self):
         """Constructor"""
         # Default Base url
-        self.host = "https://biodata.informatik.uni-halle.de/modelling/api/development/"
+        self.host = "https://biodata.informatik.uni-halle.de/modelling/api/v2.1/"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
@@ -243,5 +243,5 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 2.1\n"\
-               "SDK Package Version: 0.0.1".\
+               "SDK Package Version: 2.1.0".\
                format(env=sys.platform, pyversion=sys.version)
