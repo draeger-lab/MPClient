@@ -8,9 +8,10 @@ import json
 import logging
 
 # Set up basic configuration for the logging system
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
-def polish_model_document(config, document):
+
+def polish_model_document(document, config={}):
     """
     Polish a libsbml.SBMLDocument object using the Model Polisher API.
 
@@ -21,6 +22,8 @@ def polish_model_document(config, document):
     Returns:
     dict: Result dictionary containing run_id, diff, and polished model.
     """
+    if config is None:
+        config = {}
     logging.debug("Preparing request.")
     client_configuration = Configuration()
     client_configuration.host = "https://biodata.informatik.uni-halle.de/modelling/api/v2.1"
@@ -55,7 +58,7 @@ def polish_model_document(config, document):
     return result
 
 
-def polish_model_file(config, file_path):
+def polish_model_file(file_path, config={}):
     """
     Polish an SBML file using the Model Polisher API.
 
