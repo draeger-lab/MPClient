@@ -17,16 +17,16 @@ config = {"annotation": {"bigg": {"annotate-with-bigg": "false"},
                          "annotatedb": {"annotate-with-adb": "false"}}}
 
 # you can pass a file
-result = mp.polish_model_file(config, model_file)
+result = mp.polish_model_file(model_file, config)
 
 # or you can pass a libsbml.SBMLDocument object
-result2 = mp.polish_model_document(config, sbml)
+result2 = mp.polish_model_document(sbml, config)
 
 # result is a dictionary with five keys:
 # result["run_id"] # server-side run id for troubleshooting
 # result["diff"] # datastructure that attempts to show all the changes that were performed by the polisher
 # result["pre_validation"] # validation before the polisher was used
-# result["pre_validation"] # validation after the polisher was used
+# result["post_validation"] # validation after the polisher was used
 # result["polished_document"] # libsbml.SBMLDocument object
 ```
 
